@@ -8,6 +8,17 @@ class Author(models.Model):
     birth_date = models.DateField()
     death_date = models.DateField(null=True, blank=True)
 
+    @property
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
+    @property
+    def lifespan(self):
+        return f"{self.birth_date} {self.death_date if self.death_date else ''}"
+
+    def __str__(self):
+        return self.full_name
+
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
