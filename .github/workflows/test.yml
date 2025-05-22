@@ -25,7 +25,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Copy .env file
-      run: cp .env.example .env  # or use secrets if needed
+      run: cp .env  # or use secrets if needed
 
     - name: Run migrations
       run: python manage.py migrate
